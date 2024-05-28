@@ -38,12 +38,26 @@ app.use(express.urlencoded({extends: false}))
 app.use(myConnection(mysql, optionBd, 'pool'));
 
 app.post('/upload', upload.single('image'), (req, res)=>{
-    console.log(req.body.pseudo);
-    console.log(req.file.filename);
+    let pseudo=  req.body.pseudo;
+    let imageName = req.file.filename;
     if(!req.file){
         return res.send("Veuillez sélectionner un fichier à uploader")
     }
-    res.status(200).redirect('/')
+    // res.status(200).redirect('/')
+
+    req.getConnection((erreur, connection)=>{
+        if(erreur){
+            console.log(erreur);
+        }else{
+            connection.query("INSERT INTO users(pseudo, image) VALUES(?, ?)", [pseudo, imageName], (erreur, resultat)=>{
+                if(erreur){
+                    console.log(erreur);
+                }else{ 
+                }
+                res.status(200).render('jouer', {resultat})
+            })
+        }
+    })
 
 })
 
@@ -69,6 +83,7 @@ app.get('/', (req, res)=>{
 })
 
 app.get('/jouer', (req, res)=>{
+    
     req.getConnection((erreur, connection)=>{
         if(erreur){
             console.log(erreur);
@@ -77,8 +92,8 @@ app.get('/jouer', (req, res)=>{
                 if(erreur){
                     console.log(erreur);
                 }else{ 
-                    res.status(200).render('jouer', {resultat})
                 }
+                res.status(200).render('jouer', {resultat})
             })
         }
     })

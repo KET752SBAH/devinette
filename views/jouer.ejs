@@ -10,16 +10,17 @@
 <!-- the Game   -->
     <section class="s4">
         <h1>Jeux de Devinette</h1>
-        <div class="container s4">
-            <div class="score">
-                <h3>
-                   Score : <%= resultat[1].score %> px
-                </h3>
+        <div class="container ">
+            <div class="image">
+                <img src="/static/<%= resultat[1].image %>" alt="<%= resultat[1].image %>">
             </div>
-            <div class="contMot">
+            <div class="acc score">
+                Pseudo :<p><%= resultat[1].pseudo %></p>
+            </div>
+            <div class="acc contMot">
                 <h2 id="mot"></h2>
             </div>
-            <div id="jouer">
+            <div id="jouer" class="">
                 <input type="text" name="" id="reponse" placeholder="Donnez le mot">
                 <br>
                 <button class="start">Jouer</button>
