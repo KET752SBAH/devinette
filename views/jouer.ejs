@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>Jeux Devinette</title>
+</head>
+<body>
+<!-- the Game   -->
+    <section class="s4">
+        <h1>Jeux de Devinette</h1>
+        <div class="container s4">
+            <div class="score">
+                <h3>
+                   Score : <%= resultat[1].score %> px
+                </h3>
+            </div>
+            <div class="contMot">
+                <h2 id="mot"></h2>
+            </div>
+            <div id="jouer">
+                <input type="text" name="" id="reponse" placeholder="Donnez le mot">
+                <br>
+                <button class="start">Jouer</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let motValue = document.getElementById("mot");
+        let reponseInput = document.getElementById("reponse");
+        let start = document.querySelector(".start");
+
+        const listeMots = ['Mamadou', 'Souleymane', 'Ibrahima', 'Mariama', 'Adama', 'Salimatou', 'Kadiatou', 'Fatoumata'];
+
+    
+        start.addEventListener('click',()=>{
+        
+            // const user = new User();
+            if(jouer()===true){
+                console.log("Vous  avez trouver le mot")
+            }else{
+                console.log("*** ahhhh tu as perdus ********");
+            }
+        })
+
+        function jouer(){
+            let reponse = ''
+            // récuperer l'index du tableau de façon aléatoire
+            let index = Math.floor(Math.random()*listeMots.length);
+
+            let motAjouer = listeMots[index];
+
+            let milieu = motAjouer.substring(3,motAjouer.length-1);
+            // le mot cacher
+            let aDeviner = "***"+milieu+"*"
+            motValue.innerText = aDeviner;
+
+            reponse += reponseInput.value;
+            
+            // S'il trouve le mot, son score augmente de 1 sinon il n'augmente pas
+            if(motAjouer.toLowerCase() == reponse.toLowerCase()){
+                return true        
+            }else{
+                return false
+            }
+        }
+
+        
+    </script>
+</body>
+</html>

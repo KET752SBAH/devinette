@@ -1,0 +1,16 @@
+*{
+    margin: 0;
+    background-color: #141414;
+    color: #fff;
+}
+
+/* ********************** Acceuil Game ************** */
+section{
+    /* border: 1px solid black; */
+    height: 300px;
+    width: 500px;
+    /* background-color: aqua; */
+    margin: 0 auto;
+    margin-top:150px;
+    text-align: center;
+}

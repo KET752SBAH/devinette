@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>Jeux Devinette</title>
+</head>
+<body>
+    <!-- Liste Joueur -->
+    <section class="s3">
+        <h1>Liste des Joueur</h1>
+        <div class="container s3">
+            <table>
+                <tr>
+                    <th>Profile</th>
+                    <th>Joueurs</th>
+                    <th>Scores</th>
+                </tr>
+                <tbody>
+                    <% for(i=0; i< resultat.length; i++) {%>
+                        <tr>
+                            <td><%= resultat[i].image%> </td>
+                            <td><%= resultat[i].pseudo%> </td>
+                            <td><%= resultat[i].score%> </td>
+                        </tr>
+                    <% }%>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+
+</body>
+</html>

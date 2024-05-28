@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>Jeux Devinette</title>
+</head>
+<body>
+
+    <!-- ************ Create User **************** -->
+
+    <section class="s2">
+        <h1>Créer un compte</h1>
+        <div class="container">
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <div class="pseudoUser">
+                    <input type="text" name="pseudo" id="pseudo" placeholder="Votre Pseudo">
+                </div>
+                <div class="profileUser">
+                    <input type="file" name="image" id="image" accept="image/*">
+                </div>
+                <div class="createUser">
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+</body>
+</html>
